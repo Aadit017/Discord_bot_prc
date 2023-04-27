@@ -3,6 +3,7 @@ const fs=require('node:fs')
 const path= require("node:path")
 require('../node_modules/dotenv').config()// Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const { token } = require('./config.json');
 
 
 client.once(Events.ClientReady, c => {
@@ -18,4 +19,4 @@ client.commands = new Collection();
 // 	const filepath = path.join 
 // }
 
-client.login(process.env.CLIENT_TOKEN)
+client.login(token)
