@@ -3,7 +3,8 @@
 
 `jitesh <your-function>`
 
-==This bot is still is the development change==
+##This bot is still is the development change
+
 😉 Features will be updated as they're made 
 
  
