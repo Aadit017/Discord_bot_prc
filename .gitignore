@@ -1,4 +1,4 @@
 #.gitignore
 
 # Environents
-dot.env
+.env
