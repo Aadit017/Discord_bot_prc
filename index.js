@@ -15,12 +15,12 @@ client.on("ready", () => {
 })
 
 client.on("messageCreate", msg => {
-	msg.channel.send(msg.content.toUpperCase());
-	if(msg.content.toUpperCase().startsWith(prefix)=="JITESH"){
+	if(!msg.author.bot){
+	if(msg.content.toUpperCase().startsWith(prefix)){
 		msg.channel.send(messageCase(msg))
 		console.log("-")
 	}
-  
+}
 })
 
 client.login(token)
