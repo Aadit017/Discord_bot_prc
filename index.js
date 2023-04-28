@@ -8,16 +8,18 @@ const client = new Client({intents: [
 	GatewayIntentBits.GuildMembers,
 ], });
 
-const prefix="Jitesh"
+const prefix="JITESH"
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
 
 client.on("messageCreate", msg => {
-
-	msg.reply(messageCase(msg))
-	console.log("-")
+	msg.channel.send(msg.content.toUpperCase());
+	if(msg.content.toUpperCase().startsWith(prefix)=="JITESH"){
+		msg.channel.send(messageCase(msg))
+		console.log("-")
+	}
   
 })
 
