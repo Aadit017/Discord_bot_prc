@@ -13,7 +13,7 @@ const prefix="JITESH"
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
-  client.user.setActivity('I Jitesh Sharma From Bihar. Nice to Meet me');
+  client.user.setActivity('ME Jitesh Sharma From Bihar. Nice to Meet me');
   client.user.setStatus('dnd');
 })
 
@@ -22,18 +22,21 @@ client.on("messageCreate", msg => {
 	if(msg.content.toUpperCase().startsWith(prefix)){
 		if(basicCon(msg)!="0"){
 			// msg.channel.send(basicCon(msg))
-			console.log(basicCon(msg)+"index.js");
+			// console.log(basicCon(msg)+"index.js");
 		}else{
 			console.log("no qa");
 		}
 	}
 }
 })
-
+var cats = require('cat-ascii-faces')
 client.on("messageCreate", msg => {
-	if(!msg.author.bot){
-	if(msg.content.toUpperCase().startsWith(prefix+"kick")){
-	
+	if(msg.mentions.has(client.user)){
+		if(!msg.author.bot){
+			msg.reply(`${cats()}`)
 	}}})
+
+
+	
 
 client.login(token)
