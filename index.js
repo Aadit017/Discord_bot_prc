@@ -13,6 +13,7 @@ const prefix="JITESH"
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
+  client.user.setActivity('I Jitesh Sharma From Bihar. Nice to Meet me');
   client.user.setStatus('dnd');
 })
 
@@ -20,7 +21,7 @@ client.on("messageCreate", msg => {
 	if(!msg.author.bot){
 	if(msg.content.toUpperCase().startsWith(prefix)){
 		if(basicCon(msg)!="0"){
-			msg.channel.send(basicCon(msg))
+			// msg.channel.send(basicCon(msg))
 			console.log(basicCon(msg)+"index.js");
 		}else{
 			console.log("no qa");
@@ -29,6 +30,10 @@ client.on("messageCreate", msg => {
 }
 })
 
-
+client.on("messageCreate", msg => {
+	if(!msg.author.bot){
+	if(msg.content.toUpperCase().startsWith(prefix+"kick")){
+	
+	}}})
 
 client.login(token)
