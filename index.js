@@ -53,16 +53,17 @@ client.on("messageCreate", msg => {
 client.on("messageCreate", msg => {
 	if(!msg.author.bot){
 	if(msg.content.toLowerCase().startsWith(prefix+"kick")){
-        if (msg.mentions.members.first()) {
-            try {
-                msg.members.mentions.first().kick();
-                msg.reply("member was kicked , oof ")
-            } catch {
-                msg.reply("maybe the person is an admin or i dont have the powers ");
-            }
-        } else {
-            msg.reply("mention someone to be kicked outta this server ");
-        }  
-}}})
+        msg.reply(`${msg.mentions.users.first()}`);
+        const user=msg.guild.members.cache.get(msg.mentions.users.first())
+        if(user){
+        user.kick()
+        .then(() => {
+            send.channel("kicked")
+           }).catch(err => {
+            send.channel('I was unable to kick the member.');
+            console.error(err)})
+        } else{
+            msg.channel.send("Member not found ")
+        }}}})
 
 client.login(token)
